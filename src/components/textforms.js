@@ -16,6 +16,7 @@ export default function TextForms(props){
         textContent.select()
         navigator.clipboard.writeText(textContent.value);
     }
+    const removeExtraWhiteSpaces = () =>  setText(text.replace(/[ ]+/g, ' '));
     const textWordLength = text.length !== 0 ? text.split(' ').length : 0
     return (
         <>
@@ -28,7 +29,7 @@ export default function TextForms(props){
             <button type="button" className="btn btn-success" onClick={changeToUpperCase}>To Uppercase</button>
             <button type="button" className="btn btn-success mx-1"  onClick={changeToLowerCase}>To Lowercase</button>
             <button type="button" className="btn btn-success mx-1"onClick={changeToPascalCase}>To Pascalcase</button>
-            <button type="button" className="btn btn-success mx-1">To Camelcase</button>
+            <button type="button" className="btn btn-success mx-1" onClick={removeExtraWhiteSpaces}>Remove Extra White Spaces</button>
             <button type="button" className="btn btn-success mx-1" onClick={copyText}>Copy Text</button>
             <button type="button" className="btn btn-success mx-1" onClick={clearTextArea}>Clear</button>
         </div>
