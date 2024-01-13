@@ -22,7 +22,7 @@ export default function TextForms(props){
         <>
         <div className="container mb-3">
             <h1 className="my-3">{props.heading}</h1>
-            <textarea className="form-control" row="5" placeholder="Type or paste your text here" id="textArea" value={text}
+            <textarea className="form-control" rows="10" placeholder="Type or paste your text here" id="textArea" value={text}
               onChange={handleOnChange}></textarea>
         </div>
         <div className="container">
