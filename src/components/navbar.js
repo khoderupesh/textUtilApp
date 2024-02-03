@@ -1,5 +1,7 @@
 
 export default function Navbar(props) {
+    const toggleMode = props.mode === 'dark' ? 'light': 'dark';
+    const changeText = toggleMode[0].toUpperCase() + toggleMode.slice(1).toLowerCase()
     return (
         <nav className={`navbar navbar-expand-lg navbar-${props.mode} bg-${props.mode}`}>
             <div className="container-fluid">
@@ -19,7 +21,7 @@ export default function Navbar(props) {
                 <form>
                     <div className="form-check form-switch">
                         <input className="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" onClick={props.toggleMode}/>
-                        <label className={`form-check-label text-${props.mode === 'dark' ? 'light': 'dark'} bg-${props.mode}`} htmlFor="flexSwitchCheckDefault">Enable Dark Mode</label>
+                        <label className={`form-check-label text-${toggleMode} bg-${props.mode}`} htmlFor="flexSwitchCheckDefault">Enable {changeText} Mode</label>
                     </div>
                 </form>
                 <form className="d-flex mx-3" role="search">

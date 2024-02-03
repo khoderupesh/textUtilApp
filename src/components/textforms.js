@@ -17,7 +17,8 @@ export default function TextForms(props){
         navigator.clipboard.writeText(textContent.value);
     }
     const removeExtraWhiteSpaces = () =>  setText(text.replace(/[ ]+/g, ' '));
-    const textWordLength = text.length !== 0 ? text.split(' ').length : 0
+    const textWordLength = text.trim() === '' ? 0 : text.match(/\S+/g).length;
+    const extraSpace = text.match(/[ ]/g) ? text.match(/[ ]/g).length : 0
     return (
         <>
         <div className="container mb-3">
@@ -34,8 +35,12 @@ export default function TextForms(props){
             <button type="button" className="btn btn-success mx-1" onClick={clearTextArea}>Clear</button>
         </div>
         <div className="container my-3">
-            <label htmlFor="">Number of Characters: {text.length} and Number of words:{textWordLength}</label>
+            <label htmlFor="">Number of Characters: {text.replace(/\s+/g, '').length}</label><br/>
+            <label>Number of words: {textWordLength}</label><br/>
+            <label>Extra spaces: {extraSpace}</label>
         </div>
+
+
         </>
     )
 }
